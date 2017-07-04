@@ -70,9 +70,10 @@
 						<input class="form-control" step="0.5" type="number" name="maxGuestRating">
 					</div>
 					<div class="form-group">
-						<input onclick="this.disabled=true; this.value='Searching…';" class="btn btn-info" style="width: 100%;" type="submit" value="Search">
+						<input onclick="return validateForm();" class="btn btn-info" style="width: 100%;" type="submit" value="Search">
 					</div>
 				</form>
+
 			</div>
 			<div class="col-md-1"></div>
 		</div>
@@ -105,8 +106,7 @@
 						<div class="row">
 							<div class="col-md-5">
 								<p class="text-muted">${hotel.hotelInfo.hotelCity}
-									<a href="https://maps.google.com/?q=${hotel.hotelInfo.hotelLatitude},${hotel.hotelInfo.hotelLongitude}">
-										<span class="glyphicon glyphicon-map-marker"></span>
+									<a href="https://maps.google.com/?q=${hotel.hotelInfo.hotelLatitude},${hotel.hotelInfo.hotelLongitude}"> <span class="glyphicon glyphicon-map-marker"></span>
 									</a>
 								</p>
 							</div>
@@ -143,6 +143,15 @@
 					$("#minTripStartDate").datepicker("option", "maxDate",
 							$(this).val());
 				});
+
+		function validateForm() {
+			$("input").blur(function() {
+				if ($(this).is(":invalid")) {
+					return false;
+				}
+ 			});
+			return true;
+		}
 	</script>
 </body>
 </html>
