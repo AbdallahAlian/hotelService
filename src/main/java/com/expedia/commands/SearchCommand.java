@@ -20,6 +20,7 @@ public class SearchCommand implements CommandModel {
 
 	private static final String END_POINT = "https://offersvc.expedia.com/offers/v2/getOffers?scenario=deal-finder&page=foo&uid=foo&productType=Hotel";
 	private static final String RESULT_ATTRIBUTE = "RESULT";
+	private static final String MSG_ATTRIBUTE = "MSG";
 
 	/**
 	 * execute the Search Command and set the Result attribute to the quest
@@ -35,6 +36,9 @@ public class SearchCommand implements CommandModel {
 			Gson gson = new GsonBuilder().create();
 			Result result = gson.fromJson(json, Result.class);
 			request.setAttribute(RESULT_ATTRIBUTE, result);
+			if (result == null || result.getOffers().getHotel() == null) {
+				request.setAttribute(MSG_ATTRIBUTE, "No results found...");		
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
