@@ -66,7 +66,7 @@
 
 	<div>
 		<c:forEach var="hotel"
-			items="${requestScope['Result'].offers.getHotel()}">
+			items="${requestScope['RESULT'].offers.getHotel()}">
 			<h1>${hotel.hotelInfo.hotelName}</h1>
 			<img src="${hotel.hotelInfo.hotelImageUrl}">
 			<p>${hotel.hotelInfo.hotelStarRating}</p>
