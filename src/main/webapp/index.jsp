@@ -85,7 +85,7 @@
 
 			<c:forEach var="hotel" items="${requestScope['RESULT'].offers.getHotel()}">
 				<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
-					<div style="background-color: rgb(245, 245, 245); padding: 5px; height: 170px;">
+					<div style="background-color: rgb(245, 245, 245); padding: 5px;">
 						<div class="row">
 							<div class="col-md-4">
 								<img src="${hotel.hotelInfo.hotelImageUrl}" alt="${hotel.hotelInfo.hotelName}">
